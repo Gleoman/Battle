@@ -26,7 +26,9 @@ feature 'Attacking Player' do
     sign_in_and_play
     click_button("P1_attack_P2")
     #  binding.pry
-     $player2.hit_points
+     # $player2.hit_points
+     game = Game.new()
+     game.attack($player2)
     expect(page).to have_content("Ed takes damage of 10! #{$player2.hit_points}")
   end
 end

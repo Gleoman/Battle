@@ -13,10 +13,10 @@ describe Player do
     end
   end
 
-  describe '#attack' do
-    it 'should reduce the hit points of the attacked player' do
-      player2 = Player.new("Teddy")
-      expect { player.attack(player2) } .to change { player2.hit_points } .by -10
-    end
-  end
+  # describe '#attack' do
+  #   it 'should reduce the hit points of the attacked player' do
+  #     player2 = Player.new("Teddy")
+  #     expect { player.attack(player2) } .to change { player2.hit_points } .by -10
+  #   end
+  # end
 end
