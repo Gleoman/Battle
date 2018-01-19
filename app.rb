@@ -12,21 +12,11 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    # game = Game.new(Player.new(params[:player1_name]), Player.new(params[:player2_name]))
-    @player1 = Player.new(params[:player1_name])
-    # binding.pry
-    @player2 = Player.new(params[:player2_name])
-    # binding.pry
-    $game = Game.new(@player1, @player2)
-    # binding.pry
+    $game = Game.new(Player.new(params[:player1_name]), Player.new(params[:player2_name]))
     redirect '/play'
   end
 
   get '/play' do
-    # binding.pry
-    @player1_name = $game.player1.name
-    # binding.pry
-    @player2_name = $game.player2.name
     erb :play
   end
 
