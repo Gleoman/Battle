@@ -13,6 +13,11 @@ feature 'Recording Hit Points' do
     sign_in_and_play
     expect(page).to have_content("#{$game.player2.name} Hit Points = 100")
   end
+
+  scenario 'See player1 Hit Points' do
+    sign_in_and_play
+    expect(page).to have_content("#{$game.player1.name} Hit Points = 100")
+  end
 end
 
 
