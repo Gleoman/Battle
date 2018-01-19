@@ -4,10 +4,8 @@
 <p> <%= $game.player1.name %> Hit Points = <%= $game.player1.hit_points %> </p>
 <p> <%= $game.player2.name %> Hit Points = <%= $game.player2.hit_points %> </p>
 
-<form action="/attack_P2">
-  <input type="submit" id="P1_attack_P2" value="Attack <%= $game.player2.name %>">
-</form>
-<br>
-<form action="/attack_P1">
-  <input type="submit" id="P2_attack_P1" value="Attack <%= $game.player1.name %>">
+<p> <%= $game.turn %>'s Turn </p>
+
+<form action="/attack">
+  <input type="submit" id="attack" value="Attack <%= $game.turn %>">
 </form>

@@ -20,20 +20,11 @@ class Battle < Sinatra::Base
     erb :play
   end
 
-  get '/attack_P2' do
-    $game.attack($game.player2)
-    erb :attack_P2
+  get '/attack' do
+    $game.attack($game.defending_player)
+    $game.change_turn
+    erb :attack
   end
-
-  get '/attack_P1' do
-    $game.attack($game.player1)
-    erb :attack_P1
-  end
-
-  # get '/attack' do
-  #   $game.attack
-  #   erb :attack
-  # end
 
 run! if app_file == $0
 

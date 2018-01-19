@@ -20,30 +20,25 @@ feature 'Recording Hit Points' do
   end
 end
 
+feature 'Taking turns' do
+  scenario 'attack button avaiable to player whose turn it is' do
+  sign_in_and_play
+  page.find_by_id("attack").tag_name
+  end
+end
+
 
 feature 'Attacking Player' do
-  scenario 'Player 1 receives confirmation of attack on Player 2' do
+  scenario 'Attacking player receives confirmation of attack on defending player' do
     sign_in_and_play
-    click_button("P1_attack_P2")
+    click_button("attack")
     expect(page).to have_content("Attack Ed")
   end
 
-  scenario 'Player 1 reduces Player 2 Hit Points by attacking by 10' do
+  scenario 'attacking player reduces defending player\'s Hit Points by 10' do
     sign_in_and_play
-    click_button("P1_attack_P2")
-    expect(page).to have_content("Ed takes damage of 10! #{$game.player2.hit_points}")
-  end
-
-  scenario 'Player 2 receives confirmation of attack on Player 1' do
-    sign_in_and_play
-    click_button("P2_attack_P1")
-    expect(page).to have_content("Attack Teddy")
-  end
-
-  scenario 'Player 2 reduces Player 1 Hit Points by attacking by 10' do
-    sign_in_and_play
-    click_button("P2_attack_P1")
-    expect(page).to have_content("Teddy takes damage of 10! #{$game.player1.hit_points}")
+    click_button("attack")
+    expect(page).to have_content("Ed takes damage of 10! #{$game.defending_player.hit_points}")
   end
 
 end
