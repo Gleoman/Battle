@@ -16,10 +16,19 @@ describe Game do
       expect(game.player2.name).to eq "Teddy"
     end
 
+    it 'should initialize with a turn' do
+      expect(game.turn).to eq game.player1.name
+    end
+
   describe '#attack' do
     it 'should reduce the hit points of the attacked player' do
-      expect { game.attack(game.player2) }.to change { game.player2.hit_points } .by -10
+      expect { game.attack(game.player2) }.to change { game.player2.hit_points }.by -10
     end
   end
 
+  describe '#change_turn' do
+    it 'changes the player\'s turn' do
+      expect{ game.change_turn }.to change { game.turn }.from(game.player1.name).to(game.player2.name)
+    end
+  end
 end

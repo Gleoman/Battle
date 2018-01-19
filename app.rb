@@ -30,6 +30,11 @@ class Battle < Sinatra::Base
     erb :attack_P1
   end
 
+  # get '/attack' do
+  #   $game.attack
+  #   erb :attack
+  # end
+
 run! if app_file == $0
 
 end
